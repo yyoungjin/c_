@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <string.h>
-
-void MyFunc(void *p, char flag)
+int GetData(void *p_data, char type)
 {
-    if (flag == 0) *(char *)p = 1;
-    else if (flag == 1) *(short *)p = 1;
-    else *(int *)p = 1;
+    int result = 0;
+    if (type == 1) result = *(char *)p_data;
+    else if (type == 2) result = *(short *)p_data;
+    else if (type == 4) result = *(int *)p_data;
+    return result;
 }
+
 
 void main()
 {
-    short data = 5;
-    MyFunc(&data, 1);
-    printf("%d\n", data);
+    int data = 0x12345678;
+    printf("%X\n", GetData(&data, 2));
 }
