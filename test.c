@@ -1,23 +1,18 @@
 #include <stdio.h>
 #include <string.h>
+#include <mm_malloc.h>
 
-void main()
+int main()
 {
-    int num = 0;
-    while(1) {
-        printf("input age : ");
-        if (scanf("%d", &num) == 0) {
-            rewind(stdin);
-            printf("[Enter] digit number! \n");
-        }
-        else {
-            if(num > 0 && num <= 130) {
-                break;
-            }
-            else {
-                printf("Incorrect Age! \n");
-            }
-        }
+    char *p_name;
+    p_name = (char *)malloc(32);
+    if (p_name != NULL) {
+        printf("your name : ");
+        gets(p_name);
+        printf("Hi~ %s\n", p_name);
+        free(p_name);
+    } else {
+        printf("Memory allocation error!");
     }
-    printf("your age : %d \n", num);
-}
+    return 0;
+} 
