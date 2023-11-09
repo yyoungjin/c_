@@ -4,14 +4,10 @@
 
 int main(void)
 {
-    int n, i, res = 0;
+    int n;
     do {
-        printf("n을 입력하세요 : "); scanf("%d", &n);
-    } while(n<=0);
+        printf("두 자리 수를 입력하세요 : "); scanf("%d", &n);
+    } while(n<10 || n>99);
 
-    for(i=1;i<=n;i++) {
-        res += i;
-    }
-    printf("%d\n", res);
-    return 0;
+    printf("%d\n", n);
 } 
